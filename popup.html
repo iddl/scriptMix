@@ -1,21 +1,31 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>ScriptMix</title>
-    <style>
-      body {
-        min-width: 357px;
-        overflow-x: hidden;
-      }
 
-      div{
-        
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
+    <script src="scriptMix.js"></script>
+    <script src="lib/string.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/mustache.js"></script>
     <script src="popup.js"></script>
-  </head>
-  <body>
-  </body>
+    
+</head>
+
+<body>
+
+    <section id="summary"> </section>
+    <section id="content-links"> </section>
+
+    <script type="text/html" id="content-template">
+        <a class="content" href="{{href}}"> 
+            <i class="{{icon}}"> </i>
+            {{name}}
+        </a>
+    </script>
+
+</body>
 </html>
 

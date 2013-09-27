@@ -1,0 +1,29 @@
+/* Popup structure */
+body, html {
+    width: 450px;
+    margin: 0;
+    font-family: helvetica, arial, sans-serif;
+}
+
+section{
+    margin: 5px 5px 5px 5px;
+}
+
+.content{
+    color: black;
+    display: block;
+    line-height:1.8em;
+    text-decoration: none;
+}
+
+.content:hover{
+    background-color: #ccc;
+}
+
+.content i{
+    margin-right: 5px;
+}
+
+.content:not(:last-child){
+    border-bottom: 1px solid #eee;
+}
