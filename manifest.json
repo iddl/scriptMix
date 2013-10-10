@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "One-click Kittens",
-  "description": "This extension demonstrates a browser action with kittens.",
+  "name": "ScriptMix",
+  "description": "Chrome extension for detecting mixed scripting vulnerabilities.",
   "version": "1.0",
 
   "background": {
@@ -19,8 +19,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
+      "matches": ["https://*/*"],
+      "js": ["contentScriptHttps.js"]
+    },
+    {
+      "matches": ["http://*/*"],
+      "js": ["contentScriptHttp.js"]
     }
   ]
 }

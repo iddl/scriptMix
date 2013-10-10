@@ -1,13 +1,22 @@
 /*
+File: background.js
+
+Description:
+    Background routines and request listener code.
+
+Authors:
+    Ivan DiLernia <ivan@idilernia.com>
+*/
+
+/*
 *	onBeforeRequest event handler
 */
 onHttpRequest = function(details){
- 
+
 	function checkUrl(data){
+		console.log(details.url);
 		if(data === undefined) return;
-		if(data.url.substring(0,4) === 'http'){
-			scriptMix.addUnsafeContent(details.tabId, details);
-		}
+		scriptMix.addUnsafeContent(details.tabId, details);
 	}
 
 	chrome.tabs.get(details.tabId, checkUrl);

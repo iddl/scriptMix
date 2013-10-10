@@ -8,7 +8,7 @@ var scriptMix = function(){
 	var statuses = {
 		0 : {
 			icon : "images/good.png",
-			text : "All content was downloaded safely."
+			text : "All content was loaded safely."
 		},
 		1 : {
 			icon : "images/warning.png",
@@ -78,7 +78,7 @@ var scriptMix = function(){
 	*	Retrieves content that was downloaded using a non-HTTPS connection
 	*/
 	getUnsafeContent = function(tab, callback){
-		chrome.tabs.sendMessage(tab, {greeting: "getUnsafeContent"}, function(response) {
+		chrome.tabs.sendMessage(tab, {command: "getUnsafeContent"}, function(response) {
 			if(response !== undefined) {
 				return callback(response.content);
 			}
@@ -89,7 +89,7 @@ var scriptMix = function(){
 	*	Notifies a tab that content was downloaded using a non-HTTPS connection
 	*/
 	addUnsafeContent = function(tab, content){
-		chrome.tabs.sendMessage(tab, {greeting: "addUnsafeContent", content : content});
+		chrome.tabs.sendMessage(tab, {command: "addUnsafeContent", content : content});
 	},
 
 	/*

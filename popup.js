@@ -1,3 +1,14 @@
+/*
+File: contentScriptHttp.js
+
+Description:
+    Popup display code
+
+Authors:
+    Ivan DiLernia <ivan@idilernia.com>
+*/
+
+
 var contentDisplay = function(){
 
 	var maxLen = 45,
@@ -28,6 +39,7 @@ var contentDisplay = function(){
 				return false;
 			});
 		}
+
 	},
 
 	displayPopup = function(data){
@@ -55,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	chrome.tabs.query({'active': true}, function(tabs) {
 		scriptMix.getUnsafeContent(tabs[0].id, function(data){
-			console.log(data);
 			contentDisplay.displayPopup(data);
   		});
   	});
