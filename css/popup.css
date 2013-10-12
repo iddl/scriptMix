@@ -9,6 +9,14 @@ section{
     margin: 5px 5px 5px 5px;
 }
 
+section:first-child{
+    margin: 10px 5px 10px 10px;
+}
+
+i{
+    margin-right: 5px;
+}
+
 .content{
     color: black;
     display: block;
@@ -18,10 +26,6 @@ section{
 
 .content:hover{
     background-color: #ccc;
-}
-
-.content i{
-    margin-right: 5px;
 }
 
 .content:not(:last-child){

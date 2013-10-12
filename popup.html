@@ -16,8 +16,16 @@
 
 <body>
 
-    <section id="summary"> </section>
+    <section id="summary"> 
+            <i class="icon-info-sign"> </i>
+            Reload the page to check content
+    </section>
     <section id="content-links"> </section>
+
+    <script type="text/html" id="summary-template">
+            <i class="icon-info-sign"> </i>
+            {{text}}
+    </script>
 
     <script type="text/html" id="content-template">
         <a class="content" href="{{href}}"> 

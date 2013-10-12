@@ -14,10 +14,16 @@ var contentDisplay = function(){
 	var maxLen = 45,
 	$summary, $content;
 
+	/*
+	*	Displays summary in popup
+	*/
 	var displaySummary = function(status){
-		$summary.text(status.text);
+		$summary.html(Mustache.render($('#summary-template').html(), status));
 	},
 
+	/*
+	*	Displays links downloaded using a non-HTTPS connection
+	*/
 	displayContent = function(data) {
 		// clear old links
 		$content.html('');
@@ -26,14 +32,16 @@ var contentDisplay = function(){
 		for (var i = 0; i < data.length; i++) {
 			var url = data[i].url;
 
-			// prepare link content
+			// template object
 			var content = {
 				name : url.length > maxLen ? truncateMiddle(url, maxLen) : url,
 				href : url,
 				icon : scriptMix.requestTypes[data[i].type].icon
 			}
 			
+			// render template
 			var html = Mustache.render($('#content-template').html(), content);
+
 			$(html).appendTo($content).click(function(){
 				chrome.tabs.create({url: $(this).attr('href')});
 				return false;
@@ -60,7 +68,7 @@ var contentDisplay = function(){
 
 }();
 
-// Run our kitten generation script as soon as the document's DOM is ready.
+// Run script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
 
 	contentDisplay.initialize();

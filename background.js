@@ -51,7 +51,6 @@ chrome.tabs.onUpdated.addListener(function( tabId , info ) {
 setInterval(function(){
 	scriptMix.refreshStatus();
 }, 2000);
-
 /*
 *	Update indicator on tab switch
 */
